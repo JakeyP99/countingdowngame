@@ -96,20 +96,17 @@ public class PlayerChoice extends ButtonUtilsActivity implements PlayerListAdapt
     public void onPlayerClick(int position) {
         Player player = playerList.get(position);
         if (!player.isSelected()) {
-            player.setSelected(false);
+            player.setSelected(true); // Change to true since it was previously false
             playerListAdapter.notifyItemChanged(position);
             updatePlayerCounter();
-            if (GeneralSettingsLocalStore.fromContext(this).isSingleScreen()) {
-                CharacterClassAdapter adapter = createCharacterClassAdapter();
+
+            // Check conditions for choosing a class
+            if (GeneralSettingsLocalStore.fromContext(this).isSingleScreen() || GeneralSettingsLocalStore.fromContext(this).isGameModeClassic()) {
                 chooseClass(position);
             }
         }
     }
 
-    private CharacterClassAdapter createCharacterClassAdapter() {
-        List<CharacterClassStore> characterClasses = generateCharacterClasses();
-        return new CharacterClassAdapter(characterClasses);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

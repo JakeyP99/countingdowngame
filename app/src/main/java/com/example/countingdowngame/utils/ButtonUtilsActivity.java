@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.countingdowngame.instructions.InstructionsToPlay;
 import com.example.countingdowngame.mainActivity.EndActivityGame;
+import com.example.countingdowngame.mainActivity.GameModeChoice;
 import com.example.countingdowngame.mainActivity.HomeScreen;
 import com.example.countingdowngame.mainActivity.NumberChoice;
 import com.example.countingdowngame.mainActivity.PlayerNumberChoice;
@@ -58,9 +59,18 @@ public abstract class ButtonUtilsActivity extends AppCompatActivity {
         startActivity(getIntentForClass(NumberChoice.class, true));
     }
 
-    protected void gotoGameSetup() {
+    protected void gotoGameModeClassic() {
         startActivity(getIntentForClass(PlayerNumberChoice.class, true));
     }
+
+    protected void gotoGameModeChoice() {
+        startActivity(getIntentForClass(GameModeChoice.class, true));
+    }
+
+    protected void goToGameModeQuiz() {
+        startActivity(getIntentForClass(PlayerNumberChoice.class, true));
+    }
+
 
     protected void gotoInstructions() {
         startActivity(getIntentForClass(InstructionsToPlay.class, true));

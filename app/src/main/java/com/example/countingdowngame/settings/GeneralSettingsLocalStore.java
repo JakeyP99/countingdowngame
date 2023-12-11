@@ -65,4 +65,17 @@ public class GeneralSettingsLocalStore {
         editor.putInt("playerWildCardCount", value);
         editor.apply();
     }
+
+
+    public void setIsGameModeClassic(Boolean value) {
+        SharedPreferences.Editor editor = mPref.edit();
+        editor.putBoolean("isGameModeClassic", value);
+        editor.apply();
+    }
+
+    public Boolean isGameModeClassic() {
+        return mPref.getBoolean("isGameModeClassic", true);
+    }
+
+
 }
