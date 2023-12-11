@@ -96,7 +96,7 @@ public class PlayerChoice extends ButtonUtilsActivity implements PlayerListAdapt
     public void onPlayerClick(int position) {
         Player player = playerList.get(position);
         if (!player.isSelected()) {
-            player.setSelected(true); // Change to true since it was previously false
+            player.setSelected(false); // Change to true since it was previously false
             playerListAdapter.notifyItemChanged(position);
             updatePlayerCounter();
 
